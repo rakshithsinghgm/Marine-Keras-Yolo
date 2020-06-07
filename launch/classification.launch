@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <launch>
-    <arg name="pkg_name" value="asv_perception_classification"/>
+    <arg name="pkg_name" value="Marine-Keras-Yolo"/>
     <group ns="left_camera">
 
         <!-- 
@@ -12,13 +12,8 @@
                             Array of detections.  Resulting ROIs scaled to input image size
                 - /image:   [sensor_msgs/Image] annotated rgb image (for visualization/debugging)
         -->
-        <node name="classification" pkg="$(arg pkg_name)" type="darknet_node.py" required="true" output="screen">
+        <node name="Keras_Yolo" pkg="$(arg pkg_name)" type="keras_yolo_node.py" required="true" output="screen">
             <remap from="~input" to="/left_camera/image_color/compressed" />
-            <rosparam>
-                darknet_config_file: "/data/yolov3.cfg"
-                darknet_weights_file: "/data/yolov3.weights"
-                darknet_meta_file: "/data/coco.data"
-            </rosparam>
         </node>
 
     </group>
