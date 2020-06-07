@@ -63,7 +63,7 @@ class darknet_node(object):
 
 if __name__ == "__main__":
     try:
-        rospy.init_node(darknet_node.__name__)
+        rospy.init_node("Keras Yolo Node")
         n = darknet_node()
         rospy.spin()
     except rospy.ROSInterruptException:
